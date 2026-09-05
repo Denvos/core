@@ -1,8 +1,6 @@
 package validate
 
-import (
-	"regexp"
-)
+import "regexp"
 
 var pattern = regexp.MustCompile(`^v?\d+\.\d+$`)
 
