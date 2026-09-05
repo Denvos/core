@@ -1,4 +1,5 @@
 package json
+import "github.com/Denvos/core/encoding"
 
 import (
     "encoding/json"
