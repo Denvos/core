@@ -1,20 +1,21 @@
 package avro
+
 import "github.com/Denvos/core/encoding"
 
 type Codec struct{}
 
 func (c Codec) Marshal(v interface{}) ([]byte, error) {
-    return nil, nil
+	return nil, nil
 }
 
 func (c Codec) Unmarshal(data []byte, v interface{}) error {
-    return nil
+	return nil
 }
 
 func (c Codec) ContentType() string {
-    return "application/avro"
+	return "application/avro"
 }
 
 func init() {
-    encoding.Register("avro", Codec{})
+	encoding.Register("avro", Codec{})
 }

@@ -1,24 +1,25 @@
 package xml
+
 import "github.com/Denvos/core/encoding"
 
 import (
-    "encoding/xml"
+	"encoding/xml"
 )
 
 type Codec struct{}
 
 func (c Codec) Marshal(v interface{}) ([]byte, error) {
-    return xml.Marshal(v)
+	return xml.Marshal(v)
 }
 
 func (c Codec) Unmarshal(data []byte, v interface{}) error {
-    return xml.Unmarshal(data, v)
+	return xml.Unmarshal(data, v)
 }
 
 func (c Codec) ContentType() string {
-    return "application/xml"
+	return "application/xml"
 }
 
 func init() {
-    encoding.Register("xml", Codec{})
+	encoding.Register("xml", Codec{})
 }
