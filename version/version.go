@@ -17,7 +17,7 @@ func Parse(v string) (*Version, error) {
 	v = strings.TrimPrefix(v, "v")
 	parts := strings.Split(v, ".")
 	if len(parts) < 2 {
-		return nil, fmt.Errorf("invalid version format: %s", v)
+		return nil, fmt.Errorf("invalid version format: %s (expected major.minor)", v)
 	}
 	major, err := strconv.Atoi(parts[0])
 	if err != nil {
@@ -28,6 +28,14 @@ func Parse(v string) (*Version, error) {
 		return nil, fmt.Errorf("invalid minor version: %s", parts[1])
 	}
 	return &Version{Major: major, Minor: minor}, nil
+}
+
+func MustParse(v string) *Version {
+	ver, err := Parse(v)
+	if err != nil {
+		panic(err)
+	}
+	return ver
 }
 
 func (v *Version) String() string {
